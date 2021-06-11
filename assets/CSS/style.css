@@ -1,96 +1,164 @@
-:root {
-    --blue: #92CCCE; 
-    --sky: #445877;
+body {
+  background-color: #0e1213;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 header {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #2B2E35;
-    color: #333B41;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #5e5e54;
 }
 
-header h1 {
-    display: inline-block;
-    font-size: 45px;
-    background-color: var(--blue);
-    padding-left: 100px;
-    justify-content: space-between;
+header figure img {
+  border-radius: 50%;
 }
 
-nav a {
-    padding: 5px 10px;
-    color: var(--blue);
-    margin-right: 10px;
-    font-size: 20px;
-    text-decoration: none;
-    border-bottom: 4px solid var(--blue)
-  }
-
-header nav {
-    padding-top: 15px;
-    padding-right: 40px;
-    margin-right: 20px;
-    float: right;
+header figcaption {
+  color: #3e4243;
+  text-align: center;
 }
 
-header nav ul {
-    list-style-type: none;
+header nav a {
+  text-transform: uppercase;
+  color: white;
+  display: inline-block;
+  padding: 10px 25px;
+  text-decoration: none;
+  position: relative;
 }
 
-header nav ul li {
-    display: inline-block;
-    font-size: 30px;
+header nav a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: gold;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
 }
 
-.hero {     
-    height: 200px;     
-    width: 100%;         
-    background-image: url("../Images/pexels-pixabay-268415.jpg");     background-size: cover;     
-    background-position: center; 
+header nav a:hover:before {
+    visibility: visible;
+    width: 100%;
 }
 
-#subtitle {
-    display: inline-block;
-    margin-right: 154px;
-    margin-top: 139px;
-    font-size: 45px;
-    background-color: var(--blue);
-    color: #31343D;
-    float: right;
+header nav a:not(:last-of-type) {
+  border-right: 1px solid #333;
+}
+
+header nav a:hover {
+  color: gold;
+}
+
+header nav a::after {
+    width: 100%
 }
 
 main {
-    background-color: #EEEEF7;
-    padding: 20px;
-    color: (var)--sky;
+  margin-top: 10px;
+  border-top: 1px solid #5e5e54;
+  min-height: 100vh;
+}
+
+main > img {
+  width: 100%;
 }
 
 main section {
-    padding-left: 50px;
+  padding: 10px;
+  min-height: 100vh;
+  opacity: 0;
+  transition: 2s;
+  color: white;
 }
 
-h2 {
-    display: inline-block;
-    font-size: 45px;
-    padding: 15px;
+main section.active {
+  opacity: 1;
+}
+
+#projects {
+  text-align: center;
+}
+
+#projects > a {
+  display: inline-block;
+  margin: 20px;
+  width: 350px;
+  height: 200px;
+  text-decoration: none;
+  color: white;
+}
+
+#projects figure {
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: dimgray;
+  box-shadow: 0;
+}
+
+#projects figure:hover {
+  box-shadow: 10px 10px 10px white;
+}
+
+#projects figure img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+  background-color: black;
+}
+
+#projects figcaption {
+  margin-top: 10px;
+}
+
+#home {
+  background-color: #0e1213;
+  color: gold;
+}
+
+#home h2{
+  text-align: center;
+}
+
+#home p {
+  margin: 10px auto;
+  max-width: 650px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+#about {
+  background-color: #333333;
+  color: white;
+}
+
+footer {
+  opacity: 0;
+  transition: 2s;
+  padding: 30px;
+  text-align: center;
+  color: gold;
+  background-color: #333333;
+}
+
+footer.active {
+  opacity: 1;
+}
+
+@media screen and (max-width: 880px) {
+  header nav a {
+    display: block;
+    border: 0 !important;
+  }
+  header nav:first-of-type {
     text-align: right;
-    width: 10%;
-}
-
-.border {
-    border-right: 3px solid var(--sky);
-}
-
-.text {
-    display: inline-block;
-    width: 50%;
-    padding: 20px;
-}
-
-.contact {
-    display: inline-block;
-    font-size: 20px;
-    padding: 20px;
-    width: 50%;
-    text-align: center;
+  }
 }
